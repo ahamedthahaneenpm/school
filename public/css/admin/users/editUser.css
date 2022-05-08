@@ -1,0 +1,10 @@
+/* add css*/
+.sl-branch {
+    font-size: .8rem !important;
+    position: absolute !important;
+    top: -26px !important;
+}
+
+ul#userStepper {
+    margin-top: -10px !important;
+}

@@ -1,0 +1,19 @@
+.submit-btn {
+    margin-left: 1rem;
+}
+
+i {
+    vertical-align: middle;
+}
+
+ul.stepper.horizontal .step .step-content .step-actions {
+    position: unset;
+}
+
+ul.stepper.horizontal .step .step-content .step-actions .btn {
+    display: flex;
+}
+
+a.view-list {
+    display: none;
+}

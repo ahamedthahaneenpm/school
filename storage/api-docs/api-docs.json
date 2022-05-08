@@ -1,0 +1,394 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "ClickGo API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/customer/access_token": {
+            "post": {
+                "tags": [
+                    "Customer - Auth"
+                ],
+                "summary": "Auth Login",
+                "description": "Login by email, password\n    <table>\n        <thead>\n            <tr>\n                <td>Variable</td>\n                <td>Type</td>\n                <td>Required</td>\n                <td>Description</td>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td>email</td>\n                <td>String</td>\n                <td>Required</td>\n                <td>Customer email address</td>\n            </tr>\n            <tr>\n                <td>password</td>\n                <td>String</td>\n                <td>Required</td>\n                <td>Customer password</td>\n            </tr>\n            <tr>\n                <td>deviceIdentity</td>\n                <td>String</td>\n                <td>Required</td>\n                <td>Token identifier</td>\n            </tr>\n        </tbody>\n     </table>\n    ",
+                "operationId": "customerAuthLogin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password",
+                                    "deviceIdentity"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "pmahamedthahaneen@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Clickgo@01"
+                                    },
+                                    "deviceIdentity": {
+                                        "type": "string",
+                                        "example": "customer_auth_token"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/customer/register": {
+            "post": {
+                "tags": [
+                    "Customer - Auth"
+                ],
+                "summary": "Auth Register",
+                "description": "Registration of customers\n    <table>\n        <thead>\n            <tr>\n                <td>Variable</td>\n                <td>Type</td>\n                <td>Required</td>\n                <td>Description</td>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td>first_name</td>\n                <td>string</td>\n                <td>Required</td>\n                <td>First Name of customer</td>\n            </tr>\n            <tr>\n                <td>last_name</td>\n                <td>string</td>\n                <td>Required</td>\n                <td>Last Name of customer</td>\n            </tr>\n            <tr>\n                <td>email</td>\n                <td>email</td>\n                <td>Required</td>\n                <td>Email id of Customer</td>\n            </tr>\n            <tr>\n                <td>password</td>\n                <td>password</td>\n                <td>Required</td>\n                <td>Password</td>\n            </tr>\n        </tbody>\n     </table>\n    ",
+                "operationId": "customerAuthRegister",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Clickgo"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Customer"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "Clickgo@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Clickgo@01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/customer/logout": {
+            "post": {
+                "tags": [
+                    "Customer - Auth"
+                ],
+                "summary": "Auth Logout",
+                "description": "Customer logout <p>Enter</p>",
+                "operationId": "customerAuthLogout",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "String"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/customer/settings/get_settings": {
+            "get": {
+                "tags": [
+                    "Customer - Settings"
+                ],
+                "summary": "Get All Settings",
+                "description": "Get All Settings",
+                "operationId": "customerGetSettings",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "String"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/vendor/access_token": {
+            "post": {
+                "tags": [
+                    "Vendor - Auth"
+                ],
+                "summary": "Auth Login",
+                "description": "Login by email, password\n    <table>\n        <thead>\n            <tr>\n                <td>Variable</td>\n                <td>Type</td>\n                <td>Required</td>\n                <td>Description</td>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td>email</td>\n                <td>String</td>\n                <td>Required</td>\n                <td>Vendor email address</td>\n            </tr>\n            <tr>\n                <td>password</td>\n                <td>String</td>\n                <td>Required</td>\n                <td>Vendor password</td>\n            </tr>\n            <tr>\n                <td>deviceIdentity</td>\n                <td>String</td>\n                <td>Required</td>\n                <td>Token identifier</td>\n            </tr>\n        </tbody>\n     </table>\n    ",
+                "operationId": "vendorAuthLogin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password",
+                                    "deviceIdentity"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "pmahamedthahaneen@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Clickgo@01"
+                                    },
+                                    "deviceIdentity": {
+                                        "type": "string",
+                                        "example": "vendor_auth_token"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/vendor/register": {
+            "post": {
+                "tags": [
+                    "Vendor - Auth"
+                ],
+                "summary": "Auth Register",
+                "description": "Registration of vendors\n    <table>\n        <thead>\n            <tr>\n                <td>Variable</td>\n                <td>Type</td>\n                <td>Required</td>\n                <td>Description</td>\n            </tr>\n        </thead>\n        <tbody>\n            <tr>\n                <td>name</td>\n                <td>string</td>\n                <td>Required</td>\n                <td>Name</td>\n            </tr>\n            <tr>\n                <td>vendor_name</td>\n                <td>string</td>\n                <td>Required</td>\n                <td>Company Name</td>\n            </tr>\n            <tr>\n                <td>email</td>\n                <td>email</td>\n                <td>Required</td>\n                <td>Email id of Vendor</td>\n            </tr>\n            <tr>\n                <td>division_id</td>\n                <td>integer</td>\n                <td>Required</td>\n                <td>Vendor type id</td>\n            </tr>\n            <tr>\n                <td>password</td>\n                <td>password</td>\n                <td>Required</td>\n                <td>Password</td>\n            </tr>\n        </tbody>\n     </table>\n    ",
+                "operationId": "vendorAuthRegister",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "vendor_name",
+                                    "email",
+                                    "division_id",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Clickgo"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Vendor"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "Clickgo@gmail.com"
+                                    },
+                                    "division_id": {
+                                        "type": "integer",
+                                        "format": "integer",
+                                        "example": "1"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Clickgo@01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/vendor/logout": {
+            "post": {
+                "tags": [
+                    "Vendor - Auth"
+                ],
+                "summary": "Auth Logout",
+                "description": "Vendor logout <p>Enter</p>",
+                "operationId": "vendorAuthLogout",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "String"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vendor/divisions/list": {
+            "get": {
+                "tags": [
+                    "Vendor - Divisions"
+                ],
+                "summary": "List All Vendor Divisions",
+                "description": "List All Vendor Divisions <p>Enter</p>",
+                "operationId": "vendorListDivisions",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "String"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/vendor/settings/get_settings": {
+            "get": {
+                "tags": [
+                    "Vendor - Settings"
+                ],
+                "summary": "Get All Settings",
+                "description": "Get All Settings",
+                "operationId": "vendorGetSettings",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "String"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Authentication Bearer Token",
+                "name": "Authentication Bearer Token",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
