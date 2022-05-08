@@ -29,13 +29,14 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ## Steps to install project
 
--   clone the project from git
--   create a database
--   execute command 'composer install'
--   execute command 'npm install'
--   execute command 'php artisan migrate'
--   run 'php artisan serve'
+-   Clone the project from git
+-   Create a database
+-   Execute command 'composer install' in terminal (in the root directory of project)
+-   Execute command 'npm install'
+-   Execute command 'php artisan migrate'
+-   Run 'php artisan serve'
 -   Admin login Details:-
 
 Username:- web@root.com
+
 Password:- School@01
